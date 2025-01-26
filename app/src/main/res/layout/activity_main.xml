@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/design_default_color_background"
+        tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="8dp"
+        android:id="@+id/scrollViewMain"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:padding="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal"
+                android:clipToPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/brand_name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Brand name"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="6dp"
+                android:textAllCaps="true"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/final_price"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Final Price"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="6dp"
+                android:textAllCaps="true"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_sub_title"
+                android:textSize="16sp"
+                android:text="Subttitle name"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/brand_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="6dp"
+                android:textAllCaps="true"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_sku"
+                android:textSize="12sp"
+                android:text="SKU name"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sub_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="6dp"
+                android:textAllCaps="true"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_qty"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Quantity:"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sku"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="6dp"
+                android:padding="2dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="16dp"
+                android:id="@+id/ll_counter"
+                app:layout_constraintTop_toBottomOf="@+id/tv_qty"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMinus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/black"
+                    android:background="@drawable/baseline_minus_24"
+                    android:focusable="true"
+                    app:cornerRadius="2dp"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:id="@+id/tvCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPlus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/black"
+                    android:background="@drawable/baseline_add_24"
+                    android:focusable="true"
+                    android:textStyle="bold"
+                    app:cornerRadius="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:clickable="true"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:id="@+id/prod_info"
+                android:text="PRODUCT INFORMATION"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/ll_counter"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="6dp"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:paddingBottom="2dp"/>
+
+            <!--<ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/prod_info"
+                android:padding="2dp"
+                android:fillViewport="true">-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_description"
+                    android:textSize="14sp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/prod_info"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="6dp"/>
+
+            <!--</ScrollView>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/black"
+        android:elevation="4dp"
+        android:shadowColor="@color/black"
+        android:text="Add to bag"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_share"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:elevation="4dp"
+        android:shadowColor="@color/black"
+        android:text="Share"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
