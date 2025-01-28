@@ -30,9 +30,7 @@ class MainImageAdapter(private val imagesList: ArrayList<String>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: MainImageViewHolder, position: Int) {
-        Log.d(TAG, "inside onBindViewHolder")
         CoroutineScope(Dispatchers.Main).launch {
-            Log.d(TAG, "inside CoroutineScope")
             holder.imageView.layout(0, 0, 0, 0) //resizing images to 0
             Glide.with(holder.imageView.context)
                 .load(imagesList[position])
